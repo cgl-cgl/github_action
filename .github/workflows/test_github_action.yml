@@ -22,8 +22,9 @@ jobs:
       - name: run python code with output
         id: run-py
         run: |
-          $py=(python test.py ${{ github.event.inputs.name }})
-          Write-Output '::set-output name=success::$py'
+          py=`python test.py ${{ github.event.inputs.name }}`
+          echo '::set-output name=success::$(echo $py)'
+        shell: bash
           
 
       - name: print python output
