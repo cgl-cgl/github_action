@@ -18,7 +18,7 @@ jobs:
       - name: run python code with output
         id: run-py
         run: |
-          python test.py ll && echo '::set-output name=success::true'
+          python test.py "ll" && echo '::set-output name=success::true'
 
       - name: print python output
 
