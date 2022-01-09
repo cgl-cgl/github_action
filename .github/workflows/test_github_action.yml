@@ -1,0 +1,22 @@
+name: test github action
+on:
+  workflow_dispatch:
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v2
+
+      - name: Enable Python ${{ env.python-version }}
+        uses: github-actions/setup-python@v2.2.2
+        env:
+          python-version: 3.7
+        with:
+          python-version: ${{ env.python-version }}
+      - name: run python code with param
+        env: 
+          input1: ll
+        run: |
+          python test.py ${{ env.input1 }}
+
