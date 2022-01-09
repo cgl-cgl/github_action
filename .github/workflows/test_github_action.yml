@@ -17,8 +17,10 @@ jobs:
 
       - name: run python code with output
         id: run-py
+        env:
+          input1: ll
         run: |
-          python test.py "ll" && echo '::set-output name=success::true'
+          python test.py ${{env.input1}} && echo '::set-output name=success::true'
 
       - name: print python output
 
