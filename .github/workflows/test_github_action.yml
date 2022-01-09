@@ -22,7 +22,7 @@ jobs:
 
       - name: print python output
 
-        if: steps.run-py.outputs.success != 'true'
+        if: steps.run-py.outputs.success == 'true'
         run: |
           echo "success ture"
 
