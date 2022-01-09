@@ -23,12 +23,12 @@ jobs:
         id: run-py
         run: |
           py = `python test.py ${{ github.event.inputs.name }}`
-          echo $py && echo '::set-output name=success::true'
+          echo '::set-output name=success::$(echo $py)'
           
 
       - name: print python output
 
-        if: steps.run-py.outputs.success == 'true'
+        if: steps.run-py.outputs.success == 'Hello World'
         run: |
           echo "success true"
 
