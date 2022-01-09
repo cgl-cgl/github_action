@@ -18,5 +18,5 @@ jobs:
         env: 
           input1: ll
         run: |
-          python test.py ${{ env.input1 }}
+          python test.py $input1
 
