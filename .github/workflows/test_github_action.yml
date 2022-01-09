@@ -14,9 +14,14 @@ jobs:
           python-version: 3.7
         with:
           python-version: ${{ env.python-version }}
-      - name: run python code with param
-        env: 
-          input1: ll
+
+      - name: run python code with output
+        id: run-py
         run: |
-          python test.py "$input1"
+          python test.py && echo '::set-output name=success::true'
+
+      - name: print python output
+
+        if: steps.run-py.outputs.success != 'true'
+        run: echo "success ture"
 
