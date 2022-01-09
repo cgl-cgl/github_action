@@ -24,7 +24,6 @@ jobs:
         run: |
           py=`python test.py ${{ github.event.inputs.name }}`
           echo '::set-output name=success::$(echo $py)'
-        shell: bash
           
 
       - name: print python output
