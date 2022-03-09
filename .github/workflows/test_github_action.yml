@@ -1,5 +1,9 @@
 name: test github action
 on:
+  workflow_run:
+    workflows: [GitHub Actions Demo]
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       name:
@@ -9,6 +13,14 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
+      - name: Runing Success
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: echo 'The workflow passed'
+        
+      - name: Run Failure
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        run: echo 'The workflow failed'
+        
       - name: Check Out Repository
         uses: actions/checkout@v2
 
