@@ -4,11 +4,14 @@ on:
 #     workflows: [GitHub Actions Demo]
 #     types:
 #       - completed
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'CI Number'
-        required: true
+#   workflow_dispatch:
+#     inputs:
+#       name:
+#         description: 'CI Number'
+#         required: true
+  push:
+    branches:
+     - master
 jobs:
   job1:
     uses: ./.github/workflows/my_first_github_action.yml
